@@ -2,6 +2,12 @@
   Theme Variables 
   Modern Greyish Black Palette - Serious Open Source Aesthetic
 */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 :root {
     /* Base Colors - Dark Mode Default */
     --bg-primary: #0a0a0a;
@@ -52,13 +58,19 @@
     --duration-fast: 150ms;
     --duration-normal: 300ms;
     --duration-slow: 500ms;
+
+    /* Responsive Breakpoints */
+    --mobile-breakpoint: 768px;
 }
 
 /* Light Mode Overrides */
 body.light-mode {
-    --bg-primary: #f8f9fa; /* Slightly off-white background */
-    --bg-secondary: #ffffff; /* Pure white for elements */
-    --bg-card: #ffffff;      /* Pure white for cards */
+    --bg-primary: #f8f9fa;
+    /* Slightly off-white background */
+    --bg-secondary: #ffffff;
+    /* Pure white for elements */
+    --bg-card: #ffffff;
+    /* Pure white for cards */
     --bg-hover: #f1f5f9;
 
     --text-primary: #09090b;
@@ -66,7 +78,8 @@ body.light-mode {
     --text-tertiary: #a1a1aa;
 
     --accent-primary: #09090b;
-    --border-color: #e2e8f0; /* Slightly darker border for visibility */
+    --border-color: #e2e8f0;
+    /* Slightly darker border for visibility */
     --border-hover: #cbd5e1;
 
     --badge-bg: #f4f4f5;
@@ -321,6 +334,38 @@ ul {
     top: 0;
     z-index: 100;
     transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+
+    .nav-content {
+        padding: 0 1rem;
+        /* reduce horizontal padding */
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        /* reduced from 2rem */
+        margin-top: 0.5rem;
+        flex-basis: 100%;
+    }
+
+    .nav-links a {
+        padding: 0.4rem 0;
+        white-space: nowrap;
+        font-size: 0.85rem;
+    }
+
+    .theme-toggle {
+        margin-left: auto;
+    }
 }
 
 body.light-mode .navbar {
@@ -1207,10 +1252,13 @@ main {
     position: relative;
     overflow: hidden;
 
-    --text-primary: #ededed;   /* Resets Header/Main text to White */
-    --text-secondary: #a1a1aa; /* Resets Description/Link text to Light Grey */
-    --text-tertiary: #52525b;  /* Resets copyright text to Muted Grey */
-    
+    --text-primary: #ededed;
+    /* Resets Header/Main text to White */
+    --text-secondary: #a1a1aa;
+    /* Resets Description/Link text to Light Grey */
+    --text-tertiary: #52525b;
+    /* Resets copyright text to Muted Grey */
+
     /* Ensure the color is applied */
     color: var(--text-primary);
 }
@@ -1280,7 +1328,7 @@ main {
 
 .footer-col:hover h4::after {
     width: 30px;
-    
+
 }
 
 .footer-description {
@@ -1370,7 +1418,8 @@ main {
 }
 
 .footer-links a:hover {
-    color: #ffffff !important; /* Ensure hover state is bright white */
+    color: #ffffff !important;
+    /* Ensure hover state is bright white */
 }
 
 .footer-links a::before {
