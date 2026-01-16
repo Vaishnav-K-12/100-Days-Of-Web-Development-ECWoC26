@@ -963,21 +963,24 @@
             entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
+                        const id = entry.target.id;
 
                         navLinks.forEach(link => {
-                            link.classList.remove('active-link');
-                            if (link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active-link');
-                            }
+                            link.classList.toggle(
+                                'active-link',
+                                link.getAttribute('href') === `#${id}`
+                            );
                         });
                     }
                 });
             },
             {
-                threshold: 0.6   // section must be mostly visible
+                root: null,
+                rootMargin: '-40% 0px -55% 0px',
+                threshold: 0
             }
         );
+
 
         sections.forEach(section => observer.observe(section));
     </script>
