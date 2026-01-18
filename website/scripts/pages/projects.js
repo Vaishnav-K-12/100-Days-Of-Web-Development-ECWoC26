@@ -132,9 +132,9 @@ function renderProjects(filter = 'All') {
         let codeLink = '#';
         let isDisabled = false;
 
-        /* 🔥 SPECIAL CASE: README TOOL KIT (DAY 103) */
+        /* SPECIAL CASE: README TOOL KIT (DAY 103) */
         if (project.day === 103) {
-            liveLink = 'https://100dayswebdevelopment-ecwoc.netlify.app/public/Day 103/index.html';
+            liveLink = 'https://100dayswebdevelopment-ecwoc.netlify.app/public/Day%20103/index.html';
             codeLink = `${REPO_URL}/${folderName}`;
             isDisabled = false;
         }
