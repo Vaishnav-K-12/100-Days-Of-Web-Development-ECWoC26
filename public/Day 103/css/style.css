@@ -192,6 +192,36 @@ textarea {
 }
 
 /* =====================
+   BADGES – DARK MODE FIX
+===================== */
+body.dark .checkbox-group {
+  background: var(--surface);
+  /* dark surface */
+  border: 1px solid var(--border);
+}
+
+body.dark .checkbox-group label {
+  color: var(--text);
+  /* full contrast text */
+}
+
+body.dark .checkbox-group span {
+  color: var(--text);
+  /* badge label text */
+}
+
+body.dark .checkbox-group input {
+  accent-color: var(--primary);
+  /* blue checkbox */
+}
+
+body.dark .checkbox-group label:hover {
+  background: rgba(37, 99, 235, 0.08);
+  border-radius: 6px;
+}
+
+
+/* =====================
    BUTTONS
 ===================== */
 .btn-group {
