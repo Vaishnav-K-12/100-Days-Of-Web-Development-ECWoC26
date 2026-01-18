@@ -51,3 +51,26 @@ ${author}
   renderPreview(markdown);
   calculateScore(markdown);
 }
+
+// ==============================
+// README TOOLKIT – AUTOSAVE
+// ==============================
+
+(function autoSaveForm() {
+  const fields = document.querySelectorAll(
+    'input[id], textarea[id]'
+  );
+
+  // Restore saved values
+  fields.forEach(field => {
+    const saved = localStorage.getItem(`readme_${field.id}`);
+    if (saved !== null) {
+      field.value = saved;
+    }
+
+    // Save on change
+    field.addEventListener('input', () => {
+      localStorage.setItem(`readme_${field.id}`, field.value);
+    });
+  });
+})();
