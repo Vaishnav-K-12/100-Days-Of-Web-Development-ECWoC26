@@ -100,12 +100,12 @@ function isLoggedIn() {
 
 // Function to log out a user
 function logoutUser() {
-    // Check if a session has already been started to prevent PHP warnings
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
+    // Check if a session is active before unsetting/destroying it
+    // This prevents potential warnings if no session has been started.
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        session_unset();
+        session_destroy();
     }
-    session_unset();
-    session_destroy();
 }
 
 // Example usage:
