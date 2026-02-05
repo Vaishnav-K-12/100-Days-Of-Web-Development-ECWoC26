@@ -1,1 +1,246 @@
-PHAgYWxpZ249ImNlbnRlciI+CiAgPGltZwogICAgc3JjPSJodHRwczovL2dpdGh1Yi5jb20vdXNlci1hdHRhY2htZW50cy9hc3NldHMvYzA4MGU0YWUtMjIxZS00MjJhLTkyZGItYTg1MjVlZGVlZjA3IgogICAgYWx0PSIxMDAgRGF5cyAxMDAgUHJvamVjdHMiCiAgICB3aWR0aD0iNjAlIgogIC8+CjwvcD4KCjxpbWcgc3JjPSJodHRwczovL2dpdGh1Yi5jb20vTWF5dXItUGFnb3RlL1JFQURNRV9EZXNpZ25fS2l0L2Jsb2IvNDUxMjNmMDA3Yzc5YWE4ZDBjOGQ5YjExYjNmZjcyZDZiZjQ3NDRjNy9Bc3NldHMvU3RhciUy0xpZ2h0JTIwTGluZS5naWYiIHdpZHRoPSIxMDAlIj4KCkxldmVsIHVwIHlvdXIgKipmcm9udGVuZCBza2lsbHMqKiB3aXRoIHRoaXMgKioxMDAgRGF5cyBvZiBXZWIgRGV2ZWxvcG1lbnQgQ2hhbGxlbmdlKiogdXNpbmcgKipIVE1MLCBDU1MgJiBKYXZhU2NyaXB0KiouIEJ1aWxkICoqbWluaS1wcm9qZWN0cyoqLCBwcmFjdGljZSAqKmRhaWx5IGNvZGluZyoqLCBhbmQgY3JlYXRlIGEgKipwb3J0Zm9saW8td29ydGh5IGNvbGxlY3Rpb24qKiEKCiFbSFRNTF0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9IVE1MNS1vcmFuZ2U/c3R5bGU9Zm9yLXRoZS1iYmFkZ2UmbG9nbz1odG1sNSkKIVtDU1NdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvQ1NTMy1ibHVlP3N0eWxlPWZvci10aGUtYmFkZ2UmbG9nbz1jc3MzKQohW0phdmFTY3JpcHRdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvSmF2YVNjcmlwdC15ZWxsb3c/c3R5bGU9Zm9yLXRoZS1iYWRnZSZsb2dvPWphdmFzY3JpcHQpCiFbR2l0SHViIFJlcG8gU2l6ZV0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9naXRodWIvcmVwby1zaXplL1NodWJoYW0tY3liZXItcHJvZy8xMDAtRGF5cy1PZlctRGV2ZWxvcG1lbnQ/c3R5bGU9Zm9yLXRoZS1iYWRnZSkKIVtHaXRIdWIgU3RhcnNdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vZ2l0aHViL3N0YXJzL1NodWJoYW0tY3liZXItcHJvZy8xMDAtRGF5cy1PZlctRGV2ZWxvcG1lbnQ/c3R5bGU9Zm9yLXRoZS1iYWRnZSkKCvCflJcgKipKb2luIG91ciBEaXNjb3JkIGNvbW11bml0eToqKiBbQ2xpY2sgSGVyZV0oaHR0cHM6Ly9kaXNjb3JkLmdnL1NXN3B1d0VtKQoKLS0tCgojIyDwn5OMIEFib3V0IFRoaXMgQ2hhbGxlbmdlCgpUaGlzIHJlcG9zaXRvcnkgZG9jdW1lbnRzIG15ICoKMTBhdmFtcmFtYWQoKiB3aGVyZSBJOgoKLSBMZWFybiBhbmQgKipwcmFjdGljZSBmcm9udGVuZCBmdW5kYW1lbnRhbHMqKiBkYWlseS4KLSBCdWlsZCAqKm1pbmktcHJvamVjdHMgJiByZWFsLXdvcmxkIGFwcHMqKi4KLSBUcmFjayBwcm9ncmVzcyB3aXRoICoqaW50ZXJhY3RpdmUgdG9vbHMgJiB2aXN1YWxzKiouCi0gU3RyZW5ndGhlbiAqKnByb2JsZW0tc29sdmluZyAmIGNvZGluZyBjb25zaXN0ZW5jeSoqLgoKLS0tCgojIyDinKggS2V5IEZlYXR1cmVzCgotICoq8J+OryBEYWlseSBQcm9qZWN0cyoqOiAxMDAgY2FyZWZ1bGx5IGNyYWZ0ZWQgbWluaS1wcm9qZWN0cy4KLSAqKvCfk4ogUHJvZ3Jlc3MgVHJhY2tlcioqOiBJbnRlcmFjdGl2ZSBoZWF0bWFwIHRvIHZpc3VhbGl6ZSBjb2Rpbmcgc3RyZWFrcy4KLSAqKvCfl4LvuI8gUHJvamVjdCBDb21wZW5kaXVtKio6IFNlYXJjaGFibGUgYW5kIGZpbHRlcmFibGUgcHJvamVjdCBsaXN0LgotICoq8J+UkiBMb2dpbi9TaWdudXAgVUkqKjogU2xlZWsgc3RhdGljIGF1dGhlbnRpY2F0aW9uIGludGVyZmFjZSAoZHVtbXkgY3JlZGVudGlhbHMgb25seSkuCgo+IPCfkqEgX05vdGU6IFRoZSBsb2dpbi9zaWdudXAgVUkgaXMgZm9yIGRlbW9uc3RyYXRpb24gcHVycG9zZXMgb25seSBhbmQgZG9lcyBub3Qgc3RvcmUgcmVhbCBkYXRhLl8KCi0tLQoKIyMg8J+UpyBUZWNoIFN0YWNrCgotICoqRnJvbnRlbmQqKjogSFRNTDUsIENTUzMsIEphdmFTY1JpcHQKLSAqKlZlcnNpb24gQ29udHJvbCoqOiBHaXQgJiBHaXRIdWIKCi0tLQoKIyMg8J+MnyBHZXQgSW52b2x2ZWQKCi0gRm9yayB0aGlzIHJlcG8g4q2QCi0gQ29udHJpYnV0ZSBtaW5pLXByb2plY3RzIG9yIGVuaGFuY2VtZW50cwotIFNoYXJlIHlvdXIgcHJvZ3Jlc3Mgb24gc29jaWFsIG1lZGlhIHVzaW5nICoqIzEwMERheXNPZldlYkRldioqCgojIyDwn46vIENoYWxsZW5nZSBHb2FscwoKLSDinIUgTWFzdGVyIEhUTUwsIENTUyAmIEphdmFTY3JpcHQgZnVuZGFtZW50YWxzCi0g4pyFIEJ1aWxkIHJlYWwtd29ybGQgZnJvbnRlbmQgcHJvamVjdHMKLSDinIUgSW1wcm92ZSBHaXRIdWIgY29udHJpYnV0aW9uIGNvbnNpc3RlbmN5Ci0g4pyFIFByZXBhcmUgZm9yIE9wZW4gU291cmNlLCBJbnRlcm5zaGlwcyAmIEdTb0MKLSDinIUgQnVpbGQgYSBzdHJvbmcgZGV2ZWxvcGVyIHBvcnRmb2xpbwoKLS0tCgojIyDwn5OCIFJlcG9zaXRvcnkgU3RydWN0dXJlCgpgYGAKMTAwLURheXMtT2YtV2ViLURldmVsb3BtZW50LwrilIIK4pSc4pSA4pSAIPCfk4EgcHVibGljLyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIyBEYWlseSBQcm9qZWN0cwrilIIgICDilJzilIDilIAg8J+TgSBEYXkgMDEK4pSCICAg4pSc4pSA4pSAIPCfk4EgRGF5IDAyCuKUgiAgIOKUnOKUgOKUgCDwn5OBIERheSAwMy4uLiAoYW5kIHNvIG9uKQrilIIgICDilJTilIDilIAg8J+TgSBEYXkgMTAwICsgZXh0ZW5kZWQgNTAK4pSCCuKUnOKUgOKUgCDwn5OBIHdlYnNpdGUvICAgICAgICAgICAgICAgICAgICAgICAgICAgIyB6ZW5pdGggUG9ydGZvliBFc2l0ZQrilIIgICDilJzilIDilIAg8J+TgSBhc3NldHMvICAgICAgICAgICAgICAgICAgICAgICAgIyBJbWFnZXMsIEZvbnRzLCBJY29ucwrilIIgICDilJzilIDilIAg8J+TgSBwYWdlcy8gICAgICAgICAgICAgICAgICAgICAgICAgICMgSFRNTCBQYWdlcyAoTG9naW4sIEhvbWUsIFByb2plY3RzLi4uKQrilIIgICDilJzilIDilIAg8J+TgCBzdHlsZXMvICAgICAgICAgICAgICAgICAgICAgICAgICMgTW9kdWxhciBDU1MgU3lzdGVtCuKUgiAgIOKUlOKUgOKUgCDwn5OBIHNjcmlwdHMvICAgICAgICAgICAgICAgICAgICAgICAgIyBMb2dpYyAmIENvbm5lY3RvcnMK4pSCCuKUnOKUgOKUgCDwn5OEIGluZGV4Lmh0bWwgICAgICAgICAgICAgICAgICAgICAgICAgICMgRW50cnkgUmVkaXJlY3QgKEF1dGggR2F0ZSkK4pSc4pSA4pSAIPCfk4QgUkVBRE1FLm1kICAgICAgICAgICAgICAgICAgICAgICAgICAgIyBEb2N1bWVudGF0aW9uCuKUlOKUgOKUgCDwn5OEIENPTlRSSUJVVElORy5tZCAgICAgICAgICAgICAgICAgICAgICMgQ29udHJpYnV0aW9uIEd1aWRlbGluZXMKYGBgCgotLS0KCiMjIPCfmoAgU2V0dXAgR3VpZGUgZm9yIE5ldyBDb250cmlidXRvcnMKCldlbGNvbWUgdG8gdGhlICoqMTAwIERheXMgb2YgV2ViIERldmVsb3BtZW50KiogY2hhbGxlbmdlISBGb2xsb3cgdGhlc2Ugc3RlcHMgdG8gZ2V0IHN0YXJ0ZWQgYXMgYSBjb250cmlidXRvcjoKCiMjIyBQcmVyZXF1aXNpdGVzCgotIEJhc2ljIGtub3dsZWRnZSBvZiBIVE1MLCBDU1MsIGFuZCBKYXZhU2NyaXB0Ci0gR2l0IGluc3RhbGxlZCBvbiB5b3VyIHN5c3RlbQotIEEgY29kZSBlZGl0b3IgKGUuZy4sIFZTIENvZGUsIFN1YmxpbWUgVGV4dCkKLSBBIEdpdEh1YiBhY2NvdW50CgojIyMgU3RlcHMgdG8gQ29udHJpYnV0ZQoKMS4gKipGb3JrIHRoZSBSZXBvc2l0b3J5Kio6IENsaWNrIHRoZSAiRm9yayIgYnV0dG9uIG9uIHRoZSB0b3AgcmlnaHQgb2YgdGhpcyByZXBvc2l0b3J5J3MgcGFnZSBvbiBHaXRIdWIuCjIuICoqQ2xvbmUgWW91ciBGb3JrKio6IE9wZW4geW91ciB0ZXJtaW5hbCBhbmQgcnVuOgogICBgYGAKICAgZ2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS95b3VyLXVzZXJuYW1lLzEwMC1EYXlzLU9mLVdlYi1EZXZlbG9wbWVudC5naXQKICAgY2QgMTAwLURheXMtT2YtV2ViLURldmVsb3BtZW50CiAgIGBgYAozLiAqKlNldCBVcCB0aGUgRGV2ZWxvcG1lbnQgRW52aXJvbm1lbnQqKjoKICAgLSBFbnN1cmUgeW91IGhhdmUgTm9kZS5qcyBpbnN0YWxsZWQgKGZvciBhbnkgSlMgdG9vbGluZyBpZiBuZWVkZWQpLgogICAtIE9wZW4gdGhlIHByb2plY3QgaW4geW91ciBjb2RlIGVkaXRvci4KICAgLSBGb3IgcHJvamVjdHMgdXNpbmcgZXh0ZXJuYWwgQVBJcywgb2J0YWluIG5lY2Vzc2FyeSBBUEkga2V5cyAoZS5nLiwgZm9yIHdlYXRoZXIgYXBwcykuCiAgIC0gKipGb3IgRmlyZWJhc2UtZW5hYmxlZCBwcm9qZWN0cyoqOiBGb2xsb3cgdGhlIEZpcmViYXNlIHNldHVwIGd1aWRlIGJlbG93Lgo0LiAqKkNyZWF0ZSBhIE5ldyBCcmFuY2gqKjogQWx3YXlzIHdvcmsgb24gYSBuZXcgYnJhbmNoIGZvciB5b3VyIGNoYW5nZXM6CiAgIGBgYAogICBnaXQgY2hlY2tvdXQgLWIgZmVhdHVyZS95b3VyLWZlYXR1cmUtbmFtZQogICBgYGAKNS4gKipNYWtlIFlvdXIgQ2hhbmdlcyoqOiBBZGQgeW91ciBwcm9qZWN0IG9yIGltcHJvdmVtZW50cyBmb2xsb3dpbmcgdGhlIHJlcG9zaXRvcnkgc3RydWN0dXJlLgo2LiAqKlRlc3QgWW91ciBDaGFuZ2VzKio6IE9wZW4gdGhlIHByb2plY3QgaW4gYSBicm93c2VyIHRvIGVuc3VyZSBpdCB3b3JrcyBjb3JyZWN0bHkuCjcuICoqQ29tbWl0IGFuZCBQdXNoKio6CiAgIGBgYAogICBnaXQgYWRkIC4KICAgZ2l0IGNvbW1pdCAtbSAiQWRkIGJyaWVmIGRlc2NyaXB0aW9uIG9mIHlvdXIgY2hhbmdlcyIKICAgZ2l0IHB1c2ggb3JpZ2luIGZlYXR1cmUveW91ci1mZWF0dXJlLW5hbWUKICAgYGBgCjguICoqQ3JlYXRlIGEgUHVsbCBSZXF1ZXN0Kio6IEdvIHRvIHRoZSBvcmlnaW5hbCByZXBvc2l0b3J5IGFuZCBjcmVhdGUgYSBQUniSB3aXRoIGEgY2xlYXIgZGVzY3JpcHRpb24uCgojIyMgQWRkaXRpb25hbCBUaXBzCgotIEZvbGxvdyB0aGUgcHJvamVjdCBuYW1pbmcgY29udmVudGlvbnMgKGUuZy4sIGBkYXktWFgtcHJvamVjdC1uYW1lYCkuCi0gRW5zdXJlIHlvdXIgY29kZSBpcyB3ZWxsLWNvbW1lbnRlZCBhbmQgZm9sbG93cyBiZXN0IHByYWN0aWNlcy4KLSBDaGVjayB0aGUgYENPTlRSSUJVVElORy5tZGAgZmlsZSBmb3IgbW9yZSBkZXRhaWxlZCBndWlkZWxpbmVzLgoKLS0tCgojIyDwn5OLIFByb2plY3QgVGVtcGxhdGUgZm9yIFF1aWNrIFN0YXJ0CgpUbyBhY2NlbGVyYXRlIHlvdXIgZGV2ZWxvcG1lbnQgcHJvY2VzcywgdXNlIHRoZSBwcmUtYnVpbHQgdGVtcGxhdGVzIGluIHRoZSBgdGVtcGxhdGVzL2AgZm9sZGVyLiBUaGVzZSBwcm92aWRlIGEgc29saWQgZm91bmRhdGlvbiBmb3IgY29tbW9uIHByb2plY2QgdHlwZXMuCgojIyMgQXZhaWxhYmxlIFRlbXBsYXRlcwoKLSAqKkhUTUwgVGVtcGxhdGUqKjogQmFzaWMgSFRNTCBzdHJ1Y3R1cmUgd2l0aCBtZXRhIHRhZ3MsIGhlYWRlciwgYW5kIGZvb3Rlci4KLSAqKkNTUyBUZW1wbGF0ZSoqOiBTdGFydGVyIENTUyB3aXRoIHZhcmlhYmxlcywgdXRpbGl0aWVzLCBhbmQgcmVzcG9uc2l2ZSBkZXNpZ24gaGVscGVycy4KLSAqKkpTIFRlbXBsYXRlKio6IEphdmFTY3JpcHQgYm9pbGVycGxhdGUgd2l0aCBjb21tb24gZnVuY3Rpb25zIGFuZCBldmVudCBoYW5kbGVycy4KLSAqKkFQSSBUZW1wbGF0ZSoqOiBTZXR1cCBmb3IgcHJvamVjdHMgaW52b2x2aW5nIGV4dGVybmFsIEFQSXMgKGUuZy4sIGZldGNoIHJlY3Vlc3RzKS4KLSAqKkNvbXBvbmVudCBMaWJyYXJ5Kio6IFJldXNhYmxlIFVJIGNvbXBvbmVudHMgKGJ1dHRvbnMsIGZvcm1zLCBldGMuKS4KCiMjIyBIb3cgdG8gVXNlIGEgdGVtcGxhdGUKCjEuIE5hdmlnYXRlIHRvIHRoZSBgdGVtcGxhdGVzL2AgZm9sZGVyLgoyLiBDb3B5IHRoZSBkZXNpcmVkIHRlbXBsYXRlIGZvbGRlciB0byB5b3VyIHByb2plY3QgZGlyZWN0b3J5IChlLmcuLCBgQkVHSU5OQVIvZGF5LVhYLXlvdXItcHJvamVjdC9gKS4KMy4gUmVuYW1lIGZpbGVzIGFzIG5lZWRlZCBhbmQgY3VzdG9taXplIHRoZSBjb250ZW50Lgo0LiBJbnRlZ3JhYXRlIHdpdGggeW91ciBwcm9qZWN0J3Mgc3BlY2lmaWMgcmVxdWlyZW1lbnRzLgoKIyMjIEV4YW1wbGU6IFN0YXJ0aW5nIGEgTmV3IFRvZG8gTGlzdCBQcm9qZWN0CgpgYGAKY3AgLXIgZGVtcGxhdGVzL2h0bWwtdGVtcGxhdGUgQkVHSU5OQVIvZGF5LTAzLXRvZG8tbGlzdC8KY3AgLXIgdGVtcGxhdGVzL2Nzcy10ZW1wbGF0ZSBCRUdJTk5FUi9kYXktMDMtdG9kby1saXN0LwppY3AgLXIgdGVtcGxhdGVzL2pzLXRlbXBsYXRlIEJFR0lOTkVSL2RheS0wMy10b2RvLWxpc3QvCmBgYAoKlGhlbiwgbW9kaWZ5IHRoZSBmaWxlcyB0byBidWlsZCB5b3VyIHRvZG8gbGlzdCBmdW5jdGlvbmFsaXR5LgoKLS0tCgojIyDwn5UhBEdpdCBXb3JrZmxvdyBHdWlkZWxpbmVzCgpUbyBtYWludGFpbiBhIGNsZWFuIGFuZCBjb2xsYWJvcmF0aXZlIGNvZGViYXNlLCBmb2xsb3cgdGhlc2UgR2l0IHdvcmtmbG93IGd1aWRlbGluZXM6CgojIyMgQnJhbmNoaW5nIFN0cmF0ZWd5CgotICoqTWFpbiBCcmFuY2gqKjogYG1haW5gIGlzIHRoZSBwcm9kdWN0aW9uLXJlYWR5IGJyYW5jaC4gT25seSBtZXJnZSB0ZXN0ZWQsIHJldmlld2VkIGNvZGUKLSAqKkZlYXR1cmUgQnJhbmNoZXMqKjogVXNlIGBmZWF0dXJlL2Rlc2NyaXB0aW9uYCBmb3IgbmV3IGZlYXR1cmVzIG9yIHByb2plY3RzLgotICoqQnVnZml4IEJyYW5jaGVzKio6IFVzZSBgYnVnZml4L2Rlc2NyaXB0aW9uYCBmb3IgYnVnIGZpeGVzLgotICoqSG90Zml4IEJyYW5jaGVzKio6IFVzZSBgaG90Zml4L2Rlc2NyaXB0aW9uYCBmb3IgdXJnZW50IGZpeGVzLgoKIyMjIENvbW1pdCBHdWlkZWxpbmVzCgotIFdyaXRlIGNsZWFyLCBjb25jaXNlIGNvbW1pdCBtZXNzYWdlcyAoZS5nLiwgIkFkZCByZXNwb25zaXZlIGRlc2lnbiB0byBsYW5kaW5nIHBhZ2UiKvotIFVzZSBwcmVzZW50IHRlbnNlIChlLmcuLCAiRml4IGJ1ZyIgbm90ICJGaXhlZCBidWciKS4KLSBSZWZlcmVuY2UgaXNzdWUgbnVtYmVycyBpZiBhcHBsaWNhYmxlIChlLmcuLCAiRml4ICMxMjM6IFJlc29sdmUgbW9iaWxlIGxheW91dCBpc3N1ZSIpLgoKIyMjIFB1bGwgUmVxdWVzdCBQcm9jZXNzCjEuIEVuc3VyZSB5b3VyIGJyYW5jaCBpcyB1cC10by1kYXRlIHdpdGggYG1haW5gOgogICBgYGAKICAgZ2l0IGNoZWNrb3V0IG1haW4KICAgZ2l0IHB1bGwgb3JpZ2luIG1haW4KICAgZ2l0IGNoZWNrb3V0IHlvdXItYnJhbmNoCiAgIGdpdCByZWJhc2UgbWFpbgogICBgYGAKMi4gQ3JlYXRlIGEgUFIgd2l0aDoKICAgLSBEZXNjcmlwdGl2ZSB0aXRsZQogICAtIERldGFpbGVkIGRlc2NyaXB0aW9uIG9mIGNoYW5nZXMKICAgLSBTY3JlZW5zaG90cy92aWRlb3MgaWYgVUIgaWNoYW5nZXMKICAgLSBUZXN0aW5nIGluc3RydWN0aW9ucwozLiBSZXF1ZXN0IHJldmlld3MgZnJvbSBtYWludGFpbmVycy4KNC4gQWRkcmVzcyBmZWVkYmFjayBhbmQgbWFrZSBuZWNlc3NhcnkgY2hhbmdlcy4KNS4gT25jZSBhcHByb3ZlZCwgbWVyZ2UgdXNpbmcgIlNxdWFzaCBhbmQgbWVyZ2UiIHRvIGtlZXAgaGlzdG9yeSBjbGVhbi4KCiMjIyBCZXN0IFByYWN0aWNlcwoKLSBLZWVwIGNvbW1pdHMgYXRvbWljIChvbmUgbG9naWNhbCBjaGFuZ2UgcGVyIGNvbW1pdCkuCi0gQXZvaWQgZm9yY2UgcHVzaGVzIHRvIHNoYXJlZCBicmFuY2hlcy4KLSBSZWd1bGFybHkgc3luYyB5b3VyIGZvcsDtd2l0aCB0aGUgdXBzdHJlYW0gcmVwb3NpdG9yeS4KLSBVc2UgYC5naXRpZ25vcmVgIHRvIGV4Y2x1ZGUgdW5uZWNlc3NhcnkgZmlsZXMgKGUuZy4sIGBub2RlX21vZHVsZXMvYCwgYC5lbnZgKS4KCi0tLQoKIyMg8J+UpSBGaXJlYmFzZSBTZXR1cCBHdWlkZQo+IF9Ob3RlOiBUaGlzIEZpcmViYXNlIFNldHVwIEd1aWRlIGlzIGF3ZXNvbWUhXwoKU29tZSBwcm9qZWN0cyBpbiB0aGlzIHJlcG9zaXRvcnkgKHN1Y2ggYXMgdGhlIGxvZ2luIHN5c3RlbSBhbmQgRGF5IDg4KSB1c2UgKipGaXJlYmFzZSoqIGZvciBhdXRoZW50aWNhdGlvbiBhbmQgZGF0YWJhc2UgZnVuY3Rpb25hbGl0eS4gVG8gcnVuIHRoZXNlIHByb2plY3RzLCB5b3UnbGwgbmVlZCB0byBzZXQgdXAgeW91ciBvd24gRmlyZWJhc2UgcHJvamVjdC4KCiMjIyBXaHkgWW91IE5lZWQgWW91ciBPd24gRmlyZWJhc2UgUHJvamVjdAoK4pqg77iPICoqU2VjdXJpdHkgTm90aWNlKio6IEZpcmViYXNlIGNyZWRlbnRpYWxzIGluIHRoaXMgcmVwb3NpdG9yeSBoYXZlIGJlZW4gcmVwbGFjZWQgd2l0aCBwbGFjZWhvbGRlcnMuIEZvciBzZWN1cml0eSBhbmQgYmlsbGluZyByZWFzb25zLCB5b3UgbXVzdCBjcmVhdGUgeW91ciBvd24gRmlyZWJhc2UgcHJvamVjdCBhbmQgdXNlIHlvdXIgb3duIGNyZWRlbnRpYWxzLgoKIyMjIFN0ZXAtYnktU3RlcCBTZXR1cAoKIyMjIyAxLiBDcmVhdGUgYSBGaXJlYmFzZSBBY2NvdW50CgotIEdvIHRvIFtGaXJlYmFzZSBDb25zb2xlXShodHRwczovL2NvbnNvbGUuZmlyZWJhc2UuZ29vZ2xlLmNvbS8pCi0gU2lnbiBpbiB3aXRoIHlvdXIgR29vZ2xlIGFjY291bnQKLSBDbGljayAiQWRkIFByb2plY3QiIG9yICJDcmVhdGUgYSBQcm9qZWN0IgoKIyMjIyAyLiBDcmVhdGUgYSBOZXcgRmlyZWJhc2UgUHJvamVjdAoKLSBFbnRlciBhIHByb2plY3QgbmFtZSAoZS5nLiwgIjEwMC1kYXlzLWRldi1wcm9qZWN0IikKLSBBY2NlcHQgdGhlIHRlcm1zIGFuZCBjbGljayAiQ29udGludWUiCi0gKE9wdGlvbmFsKSBFbmFibGUgR29vZ2xlIEFuYWx5dGljcwotIENsaWNrICJDcmVhdGUgUHJvamVjdCIgYW5kIHdhaXQgZm9yIHNldHVwIHRvIGNvbXBsZXRlCgojIyMjIDMuIFJlZ2lzdGVyIFlvdXIgV2ViIEFwcAoKLSBJbiB5b3VyIEZpcmViYXNlIHByb2plY3QgZGFzaGJvYXJkLCBjbGljayB0aGUgKipXZWIgaWNvbioqIChgPC8+YCkgdG8gYWRkIGEgd2ViIGFwcAotIEVudGVyIGFuIGFwcCBuaWNrbmFtZSAoZS5nLiwgIk15IFdlYiBBcHAiKQotIENoZWNrICJBbHNvIHNldCB1cCBGaXJlYmFzZSBIb3N0aW5nIiBpZiB5b3Ugd2FudCB0byBkZXBsb3kgKG9wdGlvbmFsKQotIENsaWNrICJSZWdpc3RlciBhcHAiCgojIyMjIDQuIEdldCBZb3VyIEZpcmViYXNlIENvbmZpZ3VyYXRpb24KCi0gQWZ0ZXIgcmVnaXN0cmF0aW9uLCBGaXJlYmFzZSB3aWxsIGRpc3BsYXkgeW91ciBjb25maWd1cmF0aW9uIG9iamVjdDoKICBgYGBqYXZhc2NyaXB0CiAgY29uc3QgZmlyZWJhc2VDb25maWcgPSB7CiAgICBhcGlLZXk6ICJBSXphLi4uIiwKICAgIGF1dGhEb21haW46ICJ5b3VyLXByb2plY3QuZmlyZWJhc2VhcHAuY29tIiwKICAgIHByb2plY3RJZDogInlvdXItcHJvamVjdCIsCiAgICBzdG9yYWdlQnVja2V0OiAieW91ci1wcm9qZWN0LmZpcmViYXNlc3RvcmFnZS5hcHAiLAogICAgbWVzc2FnaW5nU2VuZGVySWQ6ICIxMjM0NTY3ODkiLAogICAgYXBwSWQ6ICIxOjEyMzQ1Njc4OTp3ZWI6YWJjZGVmIiwKICAgIG1lYXN1cmVtZW50SWQ6ICJHLVhYWFhYWFhYWFgiLCAvLyAoaWYgQW5hbHl0aWNzIGVuYWJsZWQpCiAgfTsKICBgYGAKLSAqKkNvcHkgdGhpcyBlbnRpcmUgY29uZmlndXJhdGlvbiBvYmplY3QqKgoKIyMjIyA1LiBFbmFibGUgRmlyZWJhc2UgQXV0aGVudGljYXRpb24KCi0gSW4gRmlyZWJhc2UgQ29uc29sZSwgZ28gdG8gKipCdWlsZCoqIOKGkiAqKkF1dGhlbnRpY2F0aW9uKioKLSBDbGljayAiR2V0IFN0YXJ0ZWQiCi0gR28gdG8gKipTaWduLWluIG1ldGhvZCoqIHRhYgotIEVuYWJsZSB0aGUgYXV0aGVudGljYXRpb24gbWV0aG9kcyB5b3UgbmVlZDoKICAtICoqRW1haWwvUGFzc3dvcmQqKiAoZm9yIGxvZ2luLmh0bWwpCiAgLSAqKkFub255bW91cyoqIChmb3IgZ3Vlc3QgbG9naW4gYW5kIERheSA4OCkKICAtIE90aGVycyBhcyBuZWVkZWQgKEdvb2dsZSwgR2l0SHViLCBldGMuKQoKIyMjIyA2LiBFbmFibGUgRmlyZXN0b3JlIERhdGFiYXNlIChmb3IgRGF5IDg4KQoKLSBJbiBGaXJlYmFzZSBDb25zb2xlLCBnbyB0byAqKkJ1aWxkKiog4oaSICoqRmlyZXN0b3JlIERhdGFiYXNlKioKLSBDbGljayAiQ3JlYXRlIGRhdGFiYXNlIgotIENob29zZSAqKlN0YXJ0IGluIHRlc3QgbW9kZSoqIChmb3IgZGV2ZWxvcG1lbnQpCiAgLSDimqDvuI8gKipJbXBvcnRhbnQqKjogVGVzdCBtb2RlIGFsbG93cyB1bnJlc3RyaWN0ZWQgYWNjZXNzLiBDaGFuZ2Ugc2VjdXJpdHkgcnVsZXMgYmVmb3JlIHByb2R1Y3RpW24hCi0gU2VsZWN0IGEgQ2xvdWQgRmlyZXN0b3JlIGxvY2F0aW9uIChjaG9vc2UgY2xvc2VzdCB0byB5b3UpCi0gQ2xpY2sgIkVuYWJsZSIKCiMjIyMgNy4gVXBkYXRlIFlvdXIgUHJvamVjdCBGaWxlcwoKUmVwbGFjZSB0aGUgcGxhY2Vob2xkZXIgdmFsdWVzIGluIHRoZSBmb2xsb3dpbmcgZmlsZXMgd2l0aCB5b3VyIEZpcmViYXNlIGNvbmZpZ3VyYXRpb246CgoqKkZvciBMb2dpbiBTeXN0ZW0qKiAoYHdlYnNpdGUvcGFnZXMvbG9naW4uaHRtbGApOgoKYGBgamF2YXNjcmlwdApjb25zdCBmaXJlYmFzZUNvbmZpZyA9IHsKICBhcGlLZXk6ICJZT1VSX0FQSV9LRVkiLCAvLyBSZXBsYWNlIHdpdGggeW91ciBhY3R1YWwgdmFsdWVzCiAgYXV0aERvbWFpbjogIllPVVJfUFJPSkVDVF9JRC5maXJlYmFzZWFwcC5jb20iLAogIHByb2plY3RJZDogIllPVVJfUFJPSkVDVF9JRCIsCiAgc3RvcmFnZUJ1Y2tldDogIllPVVJfUFJPSkVDVF9JRC5maXJlYmFzZXN0b3JhZ2UuYXBwIiwKICBtZXNzYWdpbmdTZW5kZXJJZDogIllPVVJfTUVTU0FHSU5HX1NFTkRFUl9JRCIsCiAgYXBwSWQ6ICJZT1VSX0FQUF9JRCIsCn07CmBgYAoKKipGb3IgRGF5IDg4IFByb2plY3QqKiAoYHB1YmxpYy9EYXkgODgvaW5kZXguaHRtbGAgYW5kIGBwdWJsaWMvRGF5IDg4L3NjcmlwdC5qc2ApOgoKYGBgamF2YXNjcmlwdApjb25zdCBmaXJlYmFzZUNvbmZpZyA9CiAgdHlwZW9mIF9fZmlyZWJhc2VfY29uZmlnICE9PSAidW5kZWZpbmVkIgogICAgPyBKU09OLnBhcnNlKF9fZmlyZWJhc2VfY29uZmlnKQogICAgOiB7CiAgICAgICAgYXBpS2V5OiAiWU9VUl9BUElfS0VZIiwKICAgICAgICBhdXRoRG9tYWluOiAiWU9VUl9QUk9KRUNUX0lELmZpcmViYXNlYXBwLmNvbSIsCiAgICAgICAgcHJvamVjdElkOiAiWU9VUl9QUk9KRUNUX0lEIiwKICAgICAgICBzdG9yYWdlQnVja2V0OiAiWU9VUl9QUk9KRUNUX0lELmZpcmViYXNlc3RvcmFnZS5hcHAiLAogICAgICAgIG1lc3NhZ2luZ1NlbmRlcklkOiAiWU9VUl9NRVNTQUdJTkdfU0VOREVSX0lEIiwKICAgICAgICBhcHBJZDogIllPVVJfQVBQX0lEIiwKICAgICAgICBtZWFzdXJlbWVudElkOiAiWU9VUl9NRUFTVVJFTUVOVF9JRCIsCiAgICAgIH07CmBgYAoKIyMjIyA4LiBTZWN1cml0eSBSdWxlcyAoSW1wb3J0YW50ISkKCkJlZm9yZSBkZXBsb3lpbmcgb3Igc2hhcmluZyB5b3VyIHByb2plY3QsIHVwZGF0ZSB5b3VyIEZpcmVzdG9yZSBzZWN1cml0eSBydWxlczoKCmBgYGphdmFzY3JpcHQKcnVsZXNfdmVyc2lvbiA9ICcyJzsKc2VydmljZSBjbG91ZC5maXJlc3RvcmUgewogIG1hdGNoIC9kYXRhYmFzZXMve2RhdGFiYXNlfS9kb2N1bWVudHMgewogICAgLy8gQWxsb3cgYXV0aGVudGljYXRlZCB1c2VycyBvbmx5CiAgICBtYXRjaCAve2RvY3VtZW50PSoqfSB7CiAgICAgIGFsbG93IHJlYWQsIHdyaXRlOiBpZiByZXF1ZXN0LmF1dGggIT0gbnVsbDsKICAgIH0KICB9Cn0KYGBgCgojIyMgQmVzdCBQcmFjdGljZXMKCuKchSAqKkRPOioqCgotIENyZWF0ZSB5b3VyIG93biBGaXJlYmFzZSBwcm9qZWN0IGZvciBkZXZlbG9wbWVudCBhbmQgdGVzdGluZwotIEtlZXAgeW91ciBGaXJlYmFzZSBjb25maWcgc2VwYXJhdGUgZnJvbSB2ZXJzaW9uIGNvbnRyb2wgKHVzZSBgLmVudmAgZmlsZXMgZm9yIHByb2R1Y3Rpb24pCi0gU2V0IHByb3BlciBzZWN1cml0eSBydWxlcyBiZWZvcmUgZGVwbG95aW5nCi0gTW9uaXRvciB1c2FnZSBpbiBGaXJlYmFzZSBDb25zb2xlIHRvIGF2b2lkIHVuZXhwZWN0ZWQgY2hhcmdlcwotIFVzZSBGaXJlYmFzZSdzIGZyZWUgdGllciBsaW1pdHMgd2lzZWx5CgrinYwgKipET04nVDoqKgoKLSBTaGFyZSB5b3VyIEZpcmViYXNlIGNyZWRlbnRpYWxzIHB1YmxpY2x5Ci0gVXNlIHNvbWVvbmUgZWxzZSdzIEZpcmViYXNlIHByb2plY3QKLSBMZWF2ZSBzZWN1cml0eSBydWxlcyBpbiAidGVzdCBtb2RlIiBmb3IgcHJvZHVjdGlvbgotIENvbW1pdCBzZW5zaXRpdmUgY3JlZGVudGlhbHMgdG8gR2l0SHViCgojIyMgVHJvdWJsZXNob290aW5nCgoqKkVycm9yOiAiRmlyZWJhc2U6IEVycm9yIChhdXRoL2ludmFsaWQtYXBpLWtleSkiKioKCi0gRG91YmxlLWNoZWNrIHRoYXQgeW91J3ZlIHJlcGxhY2VkIEFMTCBwbGFjZWhvbGRlciB2YWx1ZXMgd2l0aCB5b3VyIGFjdHVhbCBGaXJlYmFzZSBjb25maWcKCioqRXJyb3I6ICJNaXNzaW5nIG9yIGluc3VmZmljaWVudCBwZXJtaXNzaW9ucyIqKgoKLSBDaGVjayB5b3VyIEZpcmVzdG9yZSBzZWN1cml0eSBydWxlcwotIEVuc3VyZSBhdXRoZW50aWNhdGlvbiBpcyBwcm9wZXJseSBlbmFibGVkCgoqKkxvZ2luIG5vdCB3b3JraW5nOioqCgotIFZlcmlmeSBFbWFpbC9QYXNzd29yZCBhdXRoZW50aWNhdGlvbiBpcyBlbmFibGVkIGluIEZpcmViYXNlIENvbnNvbGUKLSBDaGVjayBicm93c2VyIGNvbnNvbGUgZm9yIHNwZWNpZmljIGVycm9yIG1lc3NhZ2VzCgotLS0K
+```php
+<?php
+// PHP code for Test-19
+// Generated by ChatGPT, but with some manual changes (idk lmao)
+// This file is responsible for handling user authentication and session management.
+// It includes functions for login, logout, and checking user status.
+
+// Database connection details
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', 'password');
+define('DB_NAME', 'test_db');
+
+// Function to connect to the database
+function connectDB() {
+    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    return $conn;
+}
+
+// Function to sanitize user input
+function sanitizeInput($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+// Function to hash passwords
+function hashPassword($password) {
+    return password_hash($password, PASSWORD_DEFAULT);
+}
+
+// Function to verify passwords
+function verifyPassword($password, $hash) {
+    return password_verify($password, $hash);
+}
+
+// Function to log in a user
+function loginUser($username, $password) {
+    $conn = connectDB();
+    $username = $conn->real_escape_string(sanitizeInput($username));
+
+    $sql = "SELECT id, password FROM users WHERE username = '$username'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        if (verifyPassword($password, $row['password'])) {
+            // Check if a session has already been started to prevent PHP warnings
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['username'] = $username;
+            $conn->close(); // Close database connection on successful login
+            return true;
+        }
+    }
+    $conn->close();
+    return false;
+}
+
+// Function to register a new user
+function registerUser($username, $password, $email) {
+    $conn = connectDB();
+    $username = $conn->real_escape_string(sanitizeInput($username));
+    $password = hashPassword(sanitizeInput($password));
+    $email = $conn->real_escape_string(sanitizeInput($email));
+
+    // Check if username or email already exists
+    $checkSql = "SELECT id FROM users WHERE username = '$username' OR email = '$email'";
+    $checkResult = $conn->query($checkSql);
+    if ($checkResult->num_rows > 0) {
+        $conn->close();
+        return false; // Username or email already exists
+    }
+
+    $sql = "INSERT INTO users (username, password, email) VALUES ('$username', '$password', '$email')";
+    if ($conn->query($sql) === TRUE) {
+        $conn->close();
+        return true;
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+        $conn->close();
+        return false;
+    }
+}
+
+// Function to check if a user is logged in
+function isLoggedIn() {
+    // Check if a session has already been started to prevent PHP warnings
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    return isset($_SESSION['user_id']);
+}
+
+// Function to log out a user
+function logoutUser() {
+    // Check if a session has already been started to prevent PHP warnings
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    session_unset();
+    session_destroy();
+}
+
+// Example usage:
+// if (isset($_POST['login'])) {
+//     $username = $_POST['username'];
+//     $password = $_POST['password'];
+//     if (loginUser($username, $password)) {
+//         echo "Login successful!";
+//     } else {
+//         echo "Login failed.";
+//     }
+// }
+
+// if (isset($_POST['register'])) {
+//     $username = $_POST['username'];
+//     $password = $_POST['password'];
+//     $email = $_POST['email'];
+//     if (registerUser($username, $password, $email)) {
+//         echo "Registration successful!";
+//     } else {
+//         echo "Registration failed. Username or email might already exist.";
+//     }
+// }
+
+// if (isLoggedIn()) {
+//     echo "Welcome, " . $_SESSION['username'] . "!";
+//     // Example of updating user profile
+//     // updateProfile($_SESSION['user_id'], ['email' => 'new_email@example.com']);
+// } else {
+//     echo "Please log in or register.";
+// }
+
+// New function to update user profile
+function updateProfile($userId, $data) {
+    $conn = connectDB();
+    $setClause = [];
+    foreach ($data as $key => $value) {
+        // Only allow specific fields to be updated
+        if (in_array($key, ['username', 'email', 'password'])) {
+            $value = $conn->real_escape_string(sanitizeInput($value));
+            // Hash password if it's being updated
+            if ($key === 'password') {
+                $value = hashPassword($value);
+            }
+            $setClause[] = "$key = '$value'";
+        }
+    }
+
+    if (empty($setClause)) {
+        $conn->close();
+        return false; // No valid fields to update
+    }
+
+    $setClauseStr = implode(', ', $setClause);
+    $userId = $conn->real_escape_string(sanitizeInput($userId));
+
+    $sql = "UPDATE users SET $setClauseStr WHERE id = '$userId'";
+    if ($conn->query($sql) === TRUE) {
+        $conn->close();
+        return true;
+    } else {
+        echo "Error updating profile: " . $conn->error;
+        $conn->close();
+        return false;
+    }
+}
+
+// Function to delete user account
+function deleteUser($userId) {
+    $conn = connectDB();
+    $userId = $conn->real_escape_string(sanitizeInput($userId));
+
+    $sql = "DELETE FROM users WHERE id = '$userId'";
+    if ($conn->query($sql) === TRUE) {
+        logoutUser(); // Log out the user after deleting their account
+        $conn->close();
+        return true;
+    } else {
+        echo "Error deleting account: " . $conn->error;
+        $conn->close();
+        return false;
+    }
+}
+
+// Function to fetch user details by ID
+function getUserDetails($userId) {
+    $conn = connectDB();
+    $userId = $conn->real_escape_string(sanitizeInput($userId));
+
+    $sql = "SELECT id, username, email FROM users WHERE id = '$userId'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $conn->close();
+        return $row;
+    }
+    $conn->close();
+    return null;
+}
+
+// Admin functions (example)
+function isAdmin($userId) {
+    $conn = connectDB();
+    $userId = $conn->real_escape_string(sanitizeInput($userId));
+
+    $sql = "SELECT is_admin FROM users WHERE id = '$userId'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows == 1) {
+        $row = $result->fetch_assoc();
+        $conn->close();
+        return (bool) $row['is_admin'];
+    }
+    $conn->close();
+    return false;
+}
+
+function getAllUsers() {
+    $conn = connectDB();
+    $sql = "SELECT id, username, email, is_admin FROM users";
+    $result = $conn->query($sql);
+
+    $users = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $users[] = $row;
+        }
+    }
+    $conn->close();
+    return $users;
+}
+
+// Bug: The loginUser function does not close the database connection when a session is successfully started.
+// This can lead to resource leaks if not properly managed, although PHP usually cleans up connections at script end.
+// However, it's good practice to close connections explicitly when they are no longer needed.
+// Fix: Added `$conn->close()` after successful login. Also added `session_status()` checks to prevent `session_start()` warnings in `loginUser`, `isLoggedIn`, and `logoutUser`.
+```
