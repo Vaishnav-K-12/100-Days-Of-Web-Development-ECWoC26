@@ -1,546 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100 Days of Web Development | Command Center</title>
-
-    <link rel="icon" type="image/png" href="website/assets/images/logo.png">
-    <link rel="icon" type="image/png" href="../assets/images/logo.png">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet">
-
-    <style>
-        :root {
-            /* Midnight Amber Palette */
-            --primary: #ff9d00;
-            --primary-glow: rgba(255, 157, 0, 0.4);
-            --bg: #000000;
-            --card-bg: #080808;
-            --nav-bg: rgba(5, 5, 5, 0.9);
-            --text: #ffffff;
-            --text-dim: #888888;
-            --border: #1a1a1a;
-            --success: #00ff88;
-            --danger: #ff4444;
-            --glass: rgba(255, 255, 255, 0.03);
-        }
-
-        /* --- Global Reset & Animations --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 157, 0, 0.7);
-            }
-
-            70% {
-                box-shadow: 0 0 0 10px rgba(255, 157, 0, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 157, 0, 0);
-            }
-        }
-
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* --- Global Scroll Controls --- */
-        .scroll-nav {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 9999;
-        }
-
-        .scroll-btn {
-            width: 55px;
-            height: 55px;
-            background: var(--primary);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            transition: 0.3s;
-            font-size: 1.5rem;
-            color: #000;
-            font-weight: bold;
-        }
-
-        .scroll-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            background: #fff;
-        }
-
-        /* --- Navigation Pill --- */
-        nav {
-            display: flex;
-            justify-content: center;
-            padding: 2rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.4s ease;
-        }
-
-        /* UPDATED: Uses variable so it works in light mode too */
-        nav.scrolled {
-            padding: 1.2rem 0;
-            background: var(--nav-bg);
-            backdrop-filter: blur(25px);
-        }
-
-        .nav-container {
-            background: var(--nav-bg);
-            padding: 0.7rem 2.5rem;
-            border-radius: 100px;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            transition: background 0.3s, border 0.3s;
-        }
-
-        .nav-container a {
-            text-decoration: none;
-            color: var(--text-dim);
-            font-weight: 700;
-            font-size: 0.8rem;
-            transition: 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .nav-container a:hover {
-            color: var(--primary);
-        }
-
-        .active-link {
-            color: var(--primary) !important;
-            text-shadow: 0 0 10px var(--primary-glow);
-        }
-
-        /* --- Hero Command Center --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding-top: 100px;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #1a1000 0%, transparent 70%);
-            z-index: -1;
-            opacity: 0.4;
-        }
-
-        .hero-box {
-            max-width: 1100px;
-            padding: 0 2rem;
-            animation: fadeIn 1.2s ease;
-        }
-
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 157, 0, 0.08);
-            border: 1px solid var(--primary);
-            padding: 10px 20px;
-            border-radius: 50px;
-            color: var(--primary);
-            font-weight: 800;
-            font-size: 0.7rem;
-            letter-spacing: 2.5px;
-            margin-bottom: 2.5rem;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--primary);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        h1 {
-            font-size: clamp(3.5rem, 10vw, 7rem);
-            line-height: 0.9;
-            font-weight: 800;
-            letter-spacing: -5px;
-            margin-bottom: 2rem;
-        }
-
-        .highlight {
-            color: var(--primary);
-            text-shadow: 0 0 50px var(--primary-glow);
-        }
-
-        /* --- Terminal Emulator --- */
-        .dev-console {
-            background: #050505;
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            max-width: 650px;
-            margin: 3rem auto;
-            text-align: left;
-            overflow: hidden;
-            font-family: 'JetBrains Mono', monospace;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-        }
-
-        .console-header {
-            background: #111;
-            padding: 12px 18px;
-            display: flex;
-            gap: 10px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .c-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .console-body {
-            padding: 25px;
-            color: var(--success);
-            font-size: 0.9rem;
-            height: 150px;
-            line-height: 1.8;
-        }
-
-        /* --- Dashboard Grid --- */
-        .container {
-            padding: 5rem 10%;
-            max-width: 1500px;
-            margin: auto;
-        }
-
-        .dashboard {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2.5rem;
-            margin-top: -120px;
-            position: relative;
-            z-index: 50;
-        }
-
-        .stat-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 28px;
-            padding: 3.5rem;
-            backdrop-filter: blur(15px);
-            position: relative;
-            transition: background 0.3s, border 0.3s;
-        }
-
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .metrics h3 {
-            font-size: 4rem;
-            font-weight: 800;
-            letter-spacing: -2px;
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .metrics p {
-            color: var(--text-dim);
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        /* --- Security Gates (Locked Content) --- */
-        .vault-item {
-            position: relative;
-            overflow: hidden;
-            transition: 0.4s;
-        }
-
-        .lock-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: 0.4s;
-            z-index: 10;
-            border-radius: 24px;
-        }
-
-        .vault-item:hover .lock-overlay {
-            opacity: 1;
-            cursor: pointer;
-        }
-
-        .lock-btn {
-            margin-top: 15px;
-            background: var(--primary);
-            border: none;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 800;
-            color: #000;
-            cursor: pointer;
-        }
-
-        /* --- Progress Tracking --- */
-        .progress-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-weight: 800;
-            font-size: 0.85rem;
-        }
-
-        .track-outer {
-            width: 100%;
-            height: 14px;
-            background: #111;
-            border-radius: 50px;
-            overflow: hidden;
-            border: 1px solid #222;
-        }
-
-        .track-inner {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary), #ffc400);
-            box-shadow: 0 0 30px var(--primary-glow);
-            transition: 2.5s cubic-bezier(0.2, 1, 0.3, 1);
-        }
-
-        /* --- Project Compendium --- */
-        .project-section {
-            margin-top: 12rem;
-        }
-
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 2.5rem;
-            border-radius: 28px;
-            position: relative;
-            transition: 0.5s;
-        }
-
-        .project-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-10px);
-        }
-
-        /* --- Roadmap Path --- */
-        .path-container {
-            position: relative;
-            padding-left: 50px;
-            border-left: 3px solid var(--border);
-            margin-top: 4rem;
-        }
-
-        .path-node {
-            position: relative;
-            margin-bottom: 5rem;
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-        }
-
-        .node-dot {
-            position: absolute;
-            left: -63px;
-            top: 40px;
-            width: 24px;
-            height: 24px;
-            background: var(--bg);
-            border: 4px solid var(--border);
-            border-radius: 50%;
-            z-index: 5;
-        }
-
-        .path-node.active .node-dot {
-            border-color: var(--primary);
-            background: var(--primary);
-            box-shadow: 0 0 20px var(--primary);
-        }
-
-        /* --- Footer Architecture --- */
-        footer {
-            padding: 6rem 10%;
-            border-top: 1px solid var(--border);
-            background: var(--card-bg);
-            /* UPDATED: Uses variable to switch to white in Light Mode */
-            margin-top: 10rem;
-            transition: background 0.3s ease;
-        }
-
-        .f-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 5rem;
-        }
-
-        .f-brand h4 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-        }
-
-        .f-links h5 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-        }
-
-        .f-links ul {
-            list-style: none;
-        }
-
-        .f-links li {
-            margin-bottom: 12px;
-        }
-
-        .f-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .f-links a:hover {
-            color: var(--primary);
-            padding-left: 8px;
-        }
-
-        @media (max-width: 1100px) {
-            .dashboard {
-                grid-template-columns: 1fr;
-            }
-
-            .f-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 4.5rem;
-            }
-        }
-
-        /* --- Theme Variables & Styles --- */
-        body.light-mode {
-            --bg: #ffffff;
-            --card-bg: #f8f9fa;
-            --nav-bg: rgba(255, 255, 255, 0.9);
-            --text: #121212;
-            --text-dim: #555555;
-            --border: #e0e0e0;
-            --glass: rgba(0, 0, 0, 0.03);
-        }
-
-        .theme-btn {
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text);
-            cursor: pointer;
-            font-size: 1.2rem;
-            padding: 8px 12px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .theme-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            box-shadow: 0 0 15px var(--primary-glow);
-            transform: translateY(-2px);
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 5rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.75rem;
-            color: var(--text-dim);
-            /* UPDATED: Uses variable to be readable in Light Mode */
-        }
+PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImenPgwoPGhlYWQ+CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+CiAgICA8dGl0bGU+MTAwIERheXMgb2YgV2ViIERldmVsb3BtZW50IHwgQ29tbWFuZCBDZW50ZXI8L3RpdGxlPgoKICAgIDxsaW5rIHJlbD0iaWNvbiIgdHlwZT0iaW1hZ2UvcG5nIiBocmVmPSJ3ZWJzaXRlL2Fzc2V0cy9pbWFnZXMvbG9nby5wbmciPgogICAgPGxpbmsgcmVsPSJpY29uIiB0eXBlPSJpbWFnZS9wbmciIGhyZWY9Ii4uL2Fzc2V0cy9pbWFnZXMvbG9nby5wbmciPgogICAgPGxpbmsKICAgICAgICBocmVmPSJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2NzczI/ZmFtaWx5PVBsdXMrSmFhbnRhK1NhbnM6d2dodEA0MDA7NTAwOzYwMDs3MDA7ODAwJmZhbWlseT1KZXRCcmFpbnMrTW9ubzp3Z2h0QDQwMDs1MDAmZGlzcGxheT1zd2FwIgogICAgICAgIHJlbD0ic3R5bGVzaGVldCI+CgogICAgPHN0eWxlPgogICAgICAgIDpyb290IHsKICAgICAgICAgICAgLyogTWlkbmlnaHQgQW1iZXIgUGFsZXR0ZSAqLwogICAgICAgICAgICAtLXByaW1hcnk6ICNmZjlkMDA7CiAgICAgICAgICAgIC0tcHJpbWFyeS1nbG93OiByZ2JhKDI1NSwgMTU3LCAwLCAwLjQpOwogICAgICAgICAgICAtLWJnOiAjMDAwMDAwOwogICAgICAgICAgICAtLWNhcmQtYmc6ICMwODA4MDg7CiAgICAgICAgICAgIC0tbmF2LWJnOiByZ2JhKDUsIDUsIDUsIDAuOSk7CiAgICAgICAgICAgIC0tdGV4dDogI2ZmZmZmZjsKICAgICAgICAgICAgLS10ZXh0LWRpbTogIzg4ODg4ODsKICAgICAgICAgICAgLS1ib3JkZXI6ICMxYTFhMWE7CiAgICAgICAgICAgIC0tc3VjY2VzczogIzAwZmY4ODsKICAgICAgICAgICAgLS1kYW5nZXI6ICNmZjQ0NDQ7CiAgICAgICAgICAgIC0tZ2xhc3M6IHJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wMyk7CiAgICAgICAgfQoKICAgICAgICAvKiAtLS0gR2xvYmFsIFJlc2V0ICYgQW5pbWF0aW9ucyAtLS0gKi8KICAgICAgICAqIHsKICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgICAgICBib3gtc2l6aW5nOiBib3JkZXItYm94OwogICAgICAgICAgICBzY3JvbGwtYmVoYXZpb3I6IHNtb290aDsKICAgICAgICB9CgogICAgICAgIEBrZXlmcmFtZXMgZmFkZUluIHsKICAgICAgICAgICAgZnJvbSB7CiAgICAgICAgICAgICAgICBvcGFjaXR5OiAwOwogICAgICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDIwcHgpOwogICAgICAgICAgICB9CgogICAgICAgICAgICB0byB7CiAgICAgICAgICAgICAgICBvcGFjaXR5OiAxOwogICAgICAgICAgICAgICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKDApOwogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICBAa2V5ZnJhbWVzIHB1bHNlIHsKICAgICAgICAgICAgMCUgewogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAwIDAgMCByZ2JhKDI1NSwgMTU3LCAwLCAwLjcpOwogICAgICAgICAgICB9CgogICAgICAgICAgICA3MCUgewogICAgICAgICAgICAgICAgYm94LXNoYWRvdzogMCAwIDAgMTBweCByZ2JhKDI1NSwgMTU3LCAwLCAwKTsKICAgICAgICAgICAgfQoKICAgICAgICAgICAgMTAwJSB7CiAgICAgICAgICAgICAgICBib3gtc2hhZG93OiAwIDAgMCAwIHJnYmEoMjU1LCAxNTcsIDAsIDApOwogICAgICAgICAgICB9CiAgICAgICAgfQoKICAgICAgICBib2R5IHsKICAgICAgICAgICAgZm9udC1mYW1pbHk6ICdQbHVzIEpha2FydGEgU2FucycsIHNhbnMtc2VyaWY7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6IHZhcigtLWJnKTsKICAgICAgICAgICAgY29sb3I6IHZhcigtLXRleHQpOwogICAgICAgICAgICBsaW5lLWhlaWdodDogMS42OwogICAgICAgICAgICBvdmVyZmxvdy14OiBoaWRkZW47CiAgICAgICAgICAgIHRyYW5zaXRpb246IGJhY2tncm91bmQtY29sb3IgMC4zcywgY29sb3IgMC4zczsKICAgICAgICB9CgogICAgICAgIC8qIC0tLSBHbG9iYWwgU2Nyb2xsIENvbnRyb2xzIC0tLSAqLwogICAgICAgIC5zY3JvbGwtbmF2IHsKICAgICAgICAgICAgcG9zaXRpb246IGZpeGVkOwogICAgICAgICAgICBib3R0b206IDQwcHg7CiAgICAgICAgICAgIHJpZ2h0OiA0MHB4OwogICAgICAgICAgICBkaXNwbGF5OiBmbGV4OwogICAgICAgICAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uOwogICAgICAgICAgICBnYXA6IDEycHg7CiAgICAgICAgICAgIHotaW5kZXg6IDk5OTk7CiAgICAgICAgfQoKICAgICAgICAuc2Nyb2xsLWJ0biB7CiAgICAgICAgICAgIHdpZHRoOiA1NXB4OwogICAgICAgICAgICBoZWlnaHQ6IDU1cHg7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLXByaW1hcnkpOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICAgICAgICBkaXNwbGF5OiBmbGV4OwogICAgICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAgICAgICAgYm94LXNoYWRvdzogMCAxMHB4IDIwcHggcmdiYSgwLCAwLCAwLCAwLjUpOwogICAgICAgICAgICB0cmFuc2l0aW9uOiAwLjNzOwogICAgICAgICAgICBmb250LXNpemU6IDEuNXJlbTsKICAgICAgICAgICAgY29sb3I6ICMwMDA7CiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgICAgIH0KCiAgICAgICAgLnNjcm9sbC1idG46aG92ZXIgewogICAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTVweCkgc2NhbGUoMS4xKTsKICAgICAgICAgICAgYmFja2dyb3VuZDogI2ZmZjsKICAgICAgICB9CgogICAgICAgIC8qIC0tLSBOYXZpZ2F0aW9uIFBpbGwgLS0tICovCiAgICAgICAgbmF2IHsKICAgICAgICAgICAgZGlzcGxheTogZmxleDsKICAgICAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICAgICAgICAgIHBhZGRpbmc6IDJyZW0gMDsKICAgICAgICAgICAgcG9zaXRpb246IGZpeGVkOwogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgdG9wOiAwOwogICAgICAgICAgICB6LWluZGV4OiAxMDAwOwogICAgICAgICAgICB0cmFuc2l0aW9uOiBhbGwgMC40cyBlYXNlOwogICAgICAgIH0KCiAgICAgICAgLyogVVBEQVRFRDogVXNlcyB2YXJpYWJsZSBzbyBpdCB3b3JrcyBpbiBsaWdodCBtb2RlIHRvbyAqLwogICAgICAgIG5hdi5zY3JvbGxlZCB7CiAgICAgICAgICAgIHBhZGRpbmc6IDEuMnJlbSAwOwogICAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1uYXYtYmcpOwogICAgICAgICAgICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoMjVweCk7CiAgICAgICAgfQoKICAgICAgICAubmF2LWNvbnRhaW5lciB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLW5hdi1iZyk7CiAgICAgICAgICAgIHBhZGRpbmc6IDAuN3JlbSAyLjVyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDEwMHB4OwogICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1ib3JkZXIpOwogICAgICAgICAgICBkaXNwbGF5OiBmbGV4OwogICAgICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICAgICAgICBnYXA6IDIuNXJlbTsKICAgICAgICAgICAgYm94LXNoYWRvdzogMCAxNXB4IDM1cHggcmdiYSgwLCAwLCAwLCAwLjYpOwogICAgICAgICAgICB0cmFuc2l0aW9uOiBiYWNrZ3JvdW5kIDAuM3MsIGJvcmRlciAwLjNzOwogICAgICAgIH0KCiAgICAgICAgLm5hdi1jb250YWluZXIgYSB7CiAgICAgICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgICAgICAgICAgY29sb3I6IHZhcigtLXRleHQpOyAvKi Modified for better visibility in light mode on mobile devices */CiAgICAgICAgICAgIGZvbnQtd2VpZ2h0OiA3MDA7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMC44cmVtOwogICAgICAgICAgICB0cmFuc2l0aW9uOiAwLjNzOwogICAgICAgICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOwogICAgICAgICAgICBsZXR0ZXItc3BhY2luZzogMS41cHg7CiAgICAgICAgfQoKICAgICAgICAubmF2LWNvbnRhaW5lciBhOmhvdmVyIHsKICAgICAgICAgICAgY29sb3I6IHZhcigtLXByaW1hcnkpOwogICAgICAgIH0KCiAgICAgICAgLmFjdGl2ZS1saW5rIHsKICAgICAgICAgICAgY29sb3I6IHZhcigtLXByaW1hcnkpICFpbXBvcnRhbnQ7CiAgICAgICAgICAgIHRleHQtc2hhZG93OiAwIDAgMTBweCB2YXIoLS1wcmltYXJ5LWdsb3cpOwogICAgICAgIH0KCiAgICAgICAgLyogLS0tIEhlcm8gQ29tbWFuZCBDZW50ZXIgLS0tICovCiAgICAgICAgLmhlcm8gewogICAgICAgICAgICBoZWlnaHQ6IDEwMHZoOwogICAgICAgICAgICBkaXNwbGF5OiBmbGV4OwogICAgICAgICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAgICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICAgICAgICAgIHBhZGRpbmctdG9wOiAxMDBweDsKICAgICAgICB9CgogICAgICAgIC5oZXJvOjphZnRlciB7CiAgICAgICAgICAgIGNvbnRlbnQ6ICIiOwogICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgICAgICAgIHdpZHRoOiAxMDAlOwogICAgICAgICAgICBoZWlnaHQ6IDEwMCVwOzpgCiAgICAgICAgICAgIGJhY2tncm91bmQ6IHJhZGlhbC1ncmFkaWVudChjaXJjbGUgYXQgY2VudGVyLCAjMWExMDAwIDAlLCB0cmFuc3BhcmVudCA3MCUpOwogICAgICAgICAgICB6LWluZGV4OiAtMTsKICAgICAgICAgICAgb3BhY2l0eTogMC40OwogICAgICAgIH0KCiAgICAgICAgLmhlcm8tYm94IHsKICAgICAgICAgICAgbWF4LXdpZHRoOiAxMTAwcHg7CiAgICAgICAgICAgIHBhZGRpbmc6IDAgMnJlbTsKICAgICAgICAgICAgYW5pbWF0aW9uOiBmYWRlSW4gMS4ycyBlYXNlOwogICAgICAgIH0KCiAgICAgICAgLnN0YXR1cy1waWxsIHsKICAgICAgICAgICAgZGlzcGxheTogaW5saW5lLWZsZXg7CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgICAgIGdhcDogMTJweDsKICAgICAgICAgICAgYmFja2dyb3VuZDogcmdiYSgyNTUsIDE1NywgMCwgMC4wOCk7CiAgICAgICAgICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLXByaW1hcnkpOwogICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDIwcHg7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7CiAgICAgICAgICAgIGNvbG9yOiB2YXIoLS1wcmltYXJ5KTsKICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDgwMDsKICAgICAgICAgICAgZm9udC1zaXplOiAwLjdyZW07CiAgICAgICAgICAgIGxldHRlci1zcGFjaW5nOiAyLjVweDsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMi41cmVtOwogICAgICAgIH0KCiAgICAgICAgLnN0YXR1cy1kb3QgewogICAgICAgICAgICB3aWR0aDogMTBweDsKICAgICAgICAgICAgaGVpZ2h0OiAxMHB4OwogICAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1wcmltYXJ5KTsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICAgICAgICBhbmltYXRpb246IHB1bHNlIDJzIGluZmluaXRlOwogICAgICAgIH0KCiAgICAgICAgajEgeyJ9CiAgICAgICAgICAgIGZvbnQtc2l6ZTogY2xhbXAoMy41cmVtLCAxMHZ3LCA3cmVtKTsKICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDAuOTsKICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDgwMDsKICAgICAgICAgICAgbGV0dGVyLXNwYWNpbmc6IC01cHg7CiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDJyZW07CiAgICAgICAgfQoKICAgICAgICAuaGlnaGxpZ2h0IHsKICAgICAgICAgICAgY29sb3I6IHZhcigtLXByaW1hcnkpOwogICAgICAgICAgICB0ZXh0LXNoYWRvdzogMCAwIDUwcHggdmFyKC0tcHJpbWFyeS1nbG93KTsKICAgICAgICB9CgogICAgICAgIC8qIC0tLSBUZXJtaW5hbCBFbXVsYXRvciAtLS0gKi8KICAgICAgICAuZGV2LWNvbnNvbGUgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMDUwNTA1OwogICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1ib3JkZXIpOwogICAgICAgICAgICBib3JkZXItcmFkaXVzOiAxNHB4OwogICAgICAgICAgICBtYXgtd2lkdGg6IDY1MHB4OwogICAgICAgICAgICBtYXJnaW46IDNyZW0gYXV0bzsKICAgICAgICAgICAgdGV4dC1hbGlnbjogbGVmdDsKICAgICAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgICAgICAgICAgZm9udC1mYW1pbHk6ICdKZXRCcmFpbnMgTW9ubycsIG1vbm9zcGFjZTsKICAgICAgICAgICAgYm94LXNoYWRvdzogMCAzMHB4IDYwcHggcmdiYSgwLCAwLCAwLCAwLjcpOwogICAgICAgIH0KCiAgICAgICAgLmNvbnNvbGUtaGVhZGVyIHsKICAgICAgICAgICAgYmFja2dyb3VuZDogIzExMTsKICAgICAgICAgICAgcGFkZGluZzogMTJweCAxOHB4OwogICAgICAgICAgICBkaXNwbGF5OiBmbGV4OwogICAgICAgICAgICBnYXA6IDEwcHg7CiAgICAgICAgICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1ib3JkZXIpOwogICAgICAgIH0KCiAgICAgICAgLmMtZG90IHsKICAgICAgICAgICAgd2lkdGg6IDEycHg7CiAgICAgICAgICAgIGhlaWdodDogMTJweDsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICAgIH0KCiAgICAgICAgLmNvbnNvbGUtYm9keSB7CiAgICAgICAgICAgIHBhZGRpbmc6IDI1cHg7CiAgICAgICAgICAgIGNvbG9yOiB2YXIoLS1zdWNjZXNzKTsKICAgICAgICAgICAgZm9udC1zaXplOiAwLjlyZW07CiAgICAgICAgICAgIGhlaWdodDogMTUwcHg7CiAgICAgICAgICAgIGxpbmUtaGVpZ2h0OiAxLjg7CiAgICAgICAgfQoKICAgICAgICAvKiAtLS0gRGFzaGJvYXJkIEdyaWQgLS0tICovCiAgICAgICAgLmNvbnRhaW5lciB7CiAgICAgICAgICAgIHBhZGRpbmc6IDVyZW0gMTAlOwogICAgICAgICAgICBtYXgtd2lkdGg6IDE1MDBweDsKICAgICAgICAgICAgbWFyZ2luOiBhdXRvOwogICAgICAgIH0KCiAgICAgICAgLmRhc2hib2FyZCB7CiAgICAgICAgICAgIGRpc3BsYXk6IGdyaWQ7CiAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMmZyIDFmcjsKICAgICAgICAgICAgZ2FwOiAyLjVyZW07CiAgICAgICAgICAgIG1hcmdpbi10b3A6IC0xMjBweDsKICAgICAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgICAgICAgICB6LWluZGV4OiA1MDsKICAgICAgICB9CgogICAgICAgIC5zdGF0LWNhcmQgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1jYXJkLWJnKTsKICAgICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdmFyKC0tYm9yZGVyKTsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogMjhweDsKICAgICAgICAgICAgcGFkZGluZzogMy41cmVtOwogICAgICAgICAgICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoMTVweCk7CiAgICAgICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKICAgICAgICAgICAgdHJhbnNpdGlvbjogYmFja2dyb3VuZCAwLjNzLCBib3JkZXIgMC4zczsKICAgICAgICB9CgogICAgICAgIC5tZXRyaWNzIHsKICAgICAgICAgICAgZGlzcGxheTogZ3JpZDsKICAgICAgICAgICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiByZXBlYXQoMywgMWZyKTsKICAgICAgICAgICAgZ2FwOiAzcmVtOwogICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDRyZW07CiAgICAgICAgfQoKICAgICAgICAubWV0cmljcyBoMyB7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogNHJlbTsKICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDgwMDsKICAgICAgICAgICAgbGV0dGVyLXNwYWNpbmc6IC0ycHg7CiAgICAgICAgICAgIGxpbmUtaGVpZ2h0OiAxOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxMHB4OwogICAgICAgIH0KCiAgICAgICAgLm1ldHJpY3MgcCB7CiAgICAgICAgICAgIGNvbG9yOiB2YXIoLS10ZXh0LWRpbSk7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMC43NXJlbTsKICAgICAgICAgICAgbGV0dGVyLXNwYWNpbmc6IDNweDsKICAgICAgICAgICAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTsKICAgICAgICB9CgogICAgICAgIC8qIC0tLSBTZWN1cml0eSBHYXRlcyAoTG9ja2VkIENvbnRlbnQpIC0tLSAqLwogICAgICAgIC52YXVsdC1pdGVtIHsKICAgICAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICAgICAgICB0cmFuc2l0aW9uOiAwLjRzOwogICAgICAgIH0KCiAgICAgICAgLmxvY2stb3ZlcmxheSB7CiAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsKICAgICAgICAgICAgdG9wOiAwOwogICAgICAgICAgICBsZWZ0OiAwOwogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgICAgICBiYWNrZ3JvdW5kOiByZ2JhKDAsIDAsIDAsIDAuODUpOwogICAgICAgICAgICBiYWNrZHJvcC1maWx0ZXI6IGJsdXIoOHB4KTsKICAgICAgICAgICAgZGlzcGxheTogZmxleDsKICAgICAgICAgICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjsKICAgICAgICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsKICAgICAgICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICAgICAgICAgIG9wYWNpdHk6IDA7CiAgICAgICAgICAgIHRyYW5zaXRpb246IDAuNHM7CiAgICAgICAgICAgIHotaW5kZXg6IDEwOwogICAgICAgICAgICBib3JkZXItcmFkaXVzOiAyNHB4OwogICAgICAgIH0KCiAgICAgICAgLnZhdWx0LWl0ZW06aG92ZXIgLmxvY2stb3ZlcmxheSB7CiAgICAgICAgICAgIG9wYWNpdHk6IDE7CiAgICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjsKICAgICAgICB9CgogICAgICAgIC5sb2NrLWJ0biB7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDE1cHg7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLXprY3J5KTsKICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDI1cHg7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXNzOiA1MHB4OwogICAgICAgICAgICBmb250LXdlaWdodDogODAwOwogICAgICAgICAgICBjb2xvcjogIzAwMDsKICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICAgIH0KCiAgICAgICAgLyogLS0tIFByb2dyZXNzIFRyYWNraW5nIC0tLSAqLwogICAgICAgIC5wcm9ncmVzcy1tZXRhIHsKICAgICAgICAgICAgZGlzcGxheTogZmxleDsKICAgICAgICAgICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOwogICAgICAgICAgICBtYXJnaW4tYm90dG9tOiAxNXB4OwogICAgICAgICAgICBmb250LXdlaWdodDogODAwOwogICAgICAgICAgICBmb250LXNpemU6IDAuODVyZW07CiAgICAgICAgfQoKICAgICAgICAudHJhY2stb3V0ZXIgewogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgaGVpZ2h0OiAxNHB4OwogICAgICAgICAgICBiYWNrZ3JvdW5kOiAjMTExOwogICAgICAgICAgICBib3JkZXItcmFkaXVzOiA1MHB4OwogICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjMjIyOwogICAgICAgIH0KCiAgICAgICAgLnRyYWNrLWlubmVyIHsKICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgICAgICB3aWR0aDogMCU7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudDkwdGRlZywJdmFyKC0tcHJpbWFyeSksICNmZmM0MDApOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDAgMzBweCB2YXIoLS1wcmltYXJ5LWdsb3cpOwogICAgICAgICAgICB0cmFuc2l0aW9uOiAyLjVzIGN1YmljLWJlemllcigwLjIsIDEsIDAuMywgMSk7CiAgICAgICAgfQoKICAgICAgICAvKiAtLS0gUHJvamVjdCBDb21wZW5kaXVtIC0tLSAqLwogICAgICAgIC5wcm9qZWN0LXNlY3Rpb24gewogICAgICAgICAgICBtYXJnaW4tdG9wOiAxMnJlbTsKICAgICAgICB9CgogICAgICAgIC5ncmlkLWxheW91dCB7CiAgICAgICAgICAgIGRpc3BsYXk6IGdyaWQ7CiAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogcmVwZWF0KGF1dG8tZmlsbCwgbWlubWF4KDM1MHB4LCAxZnIpKTsKICAgICAgICAgICAgZ2FwOiAycmVtOwogICAgICAgIH0KCiAgICAgICAgLnByb2plY3QtY2FyZCB7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLWNhcmQtYmcpOwogICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1ib3JkZXIpOwogICAgICAgICAgICBwYWRkaW5nOiAyLjVyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDI4cHg7CiAgICAgICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKICAgICAgICAgICAgdHJhbnNpdGlvbjogMC41czsKICAgICAgICB9CgogICAgICAgIC5wcm9qZWN0LWNhcmQ6aG92ZXIgewogICAgICAgICAgICBib3JkZXItY29sb3I6IHZhcigtLXByaW1hcnkpOwogICAgICAgICAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTEwcHgpOwogICAgICAgIH0KCiAgICAgICAgLyogLS0tIFJvYWRtYXAgUGF0aCAtLS0gKi8KICAgICAgICAucGF0aC1jb250YWluZXIgewogICAgICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7CiAgICAgICAgICAgIHBhZGRpbmctbGVmdDogNTBweDsKICAgICAgICAgICAgYm9yZGVyLWxlZnQ6IDNweCBzb2xpZCB2YXIoLS1ib3JkZXIpOwogICAgICAgICAgICBtYXJnaW4tdG9wOiA0cmVtOwogICAgICAgIH0KCiAgICAgICAgLnBhdGgtbm9kZSB7CiAgICAgICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogNXJlbTsKICAgICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tY2FyZC1iZyk7CiAgICAgICAgICAgIHBhZGRpbmc6IDUycBhyZW07CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXNzOiAyNHB4OwogICAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB2YXIoLS1ib3JkZXIpOwogICAgICAgIH0KCiAgICAgICAgLm5vZGUtZG90IHsKICAgICAgICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICAgICAgICBsZWZ0OiAtNjNweDsKICAgICAgICAgICAgdG9wOiA0MHB4OwogICAgICAgICAgICB3aWR0aDogMjRweDsKICAgICAgICAgICAgaGVpZ2h0OiAyNHB4OwogICAgICAgICAgICBiYWNrZ3JvdW5kOiB2YXIoLS1iZyk7CiAgICAgICAgICAgIGJvcmRlcjogNHB4IHNvbGlkIHZhcigtLWJvcmRlcnk7CiAgICAgICAgICAgIGJvcmRlci1yYWRpdXM6IDUwJTsKICAgICAgICAgICAgei1pbmRleDogNTsKICAgICAgICB9CgogICAgICAgIC5wYXRoLW5vZGUuYWN0aXZlIC5ub2RlLWRvdCB7CiAgICAgICAgICAgIGJvcmRlci1jb2xvcjogdmFyKC0tcHJpbWFyeSk7CiAgICAgICAgICAgIGJhY2tncm91bmQ6IHZhcigtLXByaW1hcnkpOwogICAgICAgICAgICBib3gtc2hhZG93OiAwIDAgMjBweCB2YXIoLS1wcmltYXJ5KTsKICAgICAgICB9CgogICAgICAgIC8qIC0tLSBGb290ZXIgQXJjaGl0ZWN0dXJlIC0tLSAqLwogICAgICAgIGZvb3RlciB7CiAgICAgICAgICAgIHBhZGRpbmc6IDZyZW0gMTAlOwogICAgICAgICAgICBib3JkZXItdG9wOiAxcHggc29saWQgdmFyKC0tYm9yZGVyKTsKICAgICAgICAgICAgYmFja2dyb3VuZDogdmFyKC0tY2FyZC1iZyk7CiAgICAgICAgICAgIC8qIFVQREFURUQ6IFVzZXMgdmFyaWFibGUgdG8gc3dpdGNoIHRvIHdoaXRlIGluIExpZ2h0IE1vZGUgKi8KICAgICAgICAgICAgbWFyZ2luLXRvcDogMTByZW07CiAgICAgICAgICAgIHRyYW5zaXRpb246IGJhY2tncm91bmQgMC4zcyBlYXNlOwogICAgICAgIH0KCiAgICAgICAgLmYtZ3JpZCB7CiAgICAgICAgICAgIGRpc3BsYXk6IGdyaWQ7CiAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMmZyIDFmcjEgMWZyOwogICAgICAgICAgICBnYXA6IDVyZW07CiAgICAgICAgfQoKICAgICAgICAuZi1icmFuZCAxNCB7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMS44cmVtsOwKICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDgwMDsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMS41cmVtsOwKICAgICAgICB9CgogICAgICAgIC5mLWxpbmtzIDUgeyJ9CiAgICAgICAgICAgIGNvbG9yOiB2YXIoLS1wcmltYXJ5KTsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMS41cmVtsOwKICAgICAgICAgICAgbGV0dGVyLXNwYWNpbmc6IDJweDsKICAgICAgICAgICAgZm9udC1zaXplOiAwLjlyZW07CiAgICAgICAgfQoKICAgICAgICAuZi1saW5rcyB1bCB7CiAgICAgICAgICAgIGxpc3Qtc3R5bGU6IG5vbmU7CiAgICAgICAgfQoKICAgICAgICAuZi1saW5rcyBsaSB7CiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDEycHg7CiAgICAgICAgfQoKICAgICAgICAuZi1saW5rcyBhIHsKICAgICAgICAgICAgY29sb3I6IHZhcigtLXRleHQtZGltKTsKICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgICAgICB0cmFuc2l0aW9uOiAwLjNzOwogICAgICAgICAgICBmb250LXNpemU6IDAuOXJlbsOwKICAgICAgICB9CgogICAgICAgIC5mLWxpbmtzIGE6aG92ZXIgewogICAgICAgICAgICBjb2xvcjogdmFyKC0tcHJpbWFyeSk7CiAgICAgICAgICAgIHBhZGRpbmctbGVmdDogOHB4OwogICAgICAgIH0KCiAgICAgICAgQG1lZGlhIChtYXgtd2lkdGg6IDExMDBweCkgewogICAgICAgICAgICAuZGFzaGJvYXJkIHsKICAgICAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyOwogICAgICAgICAgICB9CgogICAgICAgICAgICAuZi1ncmlkIHsKICAgICAgICAgICAgICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyOwogICAgICAgICAgICB9CgogICAgICAgICAgICBoMSB7CiAgICAgICAgICAgICAgICBmb250LXNpemU6IDQuNXJlbTsKICAgICAgICAgICAgfQogICAgICAgIH0KCiAgICAgICAgLyogLS0tIFRoZW1lIFZhcmlhYmxlcyAmIFN0eWxlcyAtLS0gKi8KICAgICAgICBib2R5LmxpZ2h0LW1vZGUgewogICAgICAgICAgICAtLWJnOiAjZmZmZmZmOwogICAgICAgICAgICAtLWNhcmQtYmc6ICNmOGY5ZmE7CiAgICAgICAgICAgIC8q Updated for better visibility in light mode on mobile devices *//**
+    --nav-bg: rgb(255, 255, 255); /* Changed to opaque white for consistent background */
+    --text: #121212;
+    --text-dim: #333333; /* Darker dimmed text for better contrast */
+    --border: #d0d0d0; /* Slightly darker border for better definition */
+    --glass: rgba(0, 0, 0, 0.03);
+}
+
+.theme-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+    transform: translateY(-2px);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    /* UPDATED: Uses variable for readability in Light Mode */
+}
     </style>
 </head>
 
 <body>
 
     <div class="scroll-nav">
-        <button class="scroll-btn" onclick="window.scrollTo(0,0)">▲</button>
-        <button class="scroll-btn" onclick="window.scrollTo(0, document.body.scrollHeight)">▼</button>
+        <button class="scroll-btn" onclick="window.scrollTo(0,0)">&#x2191;</button>
+        <button class="scroll-btn" onclick="window.scrollTo(0, document.body.scrollHeight)">&#x2193;</button>
     </div>
 
     <nav id="navbar">
@@ -548,8 +51,8 @@
             <a href="#command" class="nav-link active-link">Command</a>
             <a href="#vault" class="nav-link">Learning</a>
             <a href="#path" class="nav-link">Path</a>
-            <a href="website/pages/login.html" style="color:var(--primary)">Login Portal</a>
-            <button id="theme-toggle" class="theme-btn">☀️</button>
+            <a href="website/pages/login.html" style="color:var(--primary);">Login Portal</a>
+            <button id="theme-toggle" class="theme-btn">&#x1f312;</button>
         </div>
     </nav>
 
@@ -560,7 +63,8 @@
                 <div class="status-dot"></div> PROTOCOL 100-WD: ACTIVE
             </div>
             <h1>The Art of <br><span class="highlight">Web Engineering</span></h1>
-            <p>Deploying 100 targeted modules to bridge the gap between frontend logic and full-stack architecture.</p>
+            <p>Deploying 100 targeted modules to bridge the gap between frontend logic and full-stack
+                architecture.</p>
 
             <div class="dev-console">
                 <div class="console-header">
@@ -593,7 +97,6 @@
                         <p>System Integrity</p>
                     </div>
                 </div>
-
                 <div class="progress-container">
                     <div class="progress-meta">
                         <span>PROTOCOL SYNC STATUS</span>
@@ -608,13 +111,13 @@
             <div class="stat-card"
                 style="display:flex; flex-direction:column; justify-content:center; text-align:center;">
                 <p style="letter-spacing:4px; font-size:0.7rem; color:var(--text-dim)">CURRENT TIMESTAMP</p>
-                <h2 id="live-clock" style="font-size: 2.2rem; margin-top: 10px; font-family:'JetBrains Mono'">00:00:00
+                <h2 id="live-clock"
+                    style="font-size: 2.2rem; margin-top: 10px; font-family:'JetBrains Mono'">00:00:00
                 </h2>
                 <div style="margin-top:20px; color:var(--primary); font-weight:800; font-size:0.8rem">SYSTEMS NOMINAL
                 </div>
             </div>
         </div>
-
         <section id="vault" class="project-section">
             <div style="margin-bottom: 4rem;">
                 <h2 style="font-size: 3.5rem; letter-spacing: -3px;">Projects</h2>
@@ -718,12 +221,12 @@
             VAULT_DATA.forEach(module => {
                 grid.innerHTML += `
                     <div class="project-card vault-item">
-                        <span style="color:var(--primary); font-family:'JetBrains Mono'; font-size:0.75rem">MOD_V.${module.id}</span>
+                        <span style="color:var(--primary); font-family:'JetBrains Mono'; font-size:0.75rem">MOD-V.${module.id}</span>
                         <h4 style="margin: 15px 0; font-size:1.4rem;">${module.title}</h4>
                         <p style="color:var(--text-dim); font-size:0.85rem">${module.category}</p>
                         ${module.locked ? `
                         <div class="lock-overlay" onclick="window.location.href='${AUTH_PATH}'">
-                            <span style="font-size:2rem">🔒</span>
+                            <span style="font-size:2rem">&#x1f512;</span>
                             <p style="font-weight:800; margin-top:10px;">SECURE ACCESS REQUIRED</p>
                             <button class="lock-btn">AUTHENTICATE</button>
                         </div>` : ''}
@@ -742,7 +245,7 @@
                         <p>${node.details}</p>
                         ${!node.active ? `
                         <div class="lock-overlay" onclick="window.location.href='${AUTH_PATH}'">
-                            <span style="font-size:1.5rem">🔒</span>
+                            <span style="font-size:1.5rem">&#x1f512;</span>
                             <p style="font-size:0.7rem; font-weight:800;">LOCKED PHASE</p>
                         </div>` : ''}
                     </div>
@@ -776,7 +279,7 @@
 
         if (localStorage.getItem('theme') === 'light') {
             body.classList.add('light-mode');
-            themeBtn.innerText = '🌙';
+            themeBtn.innerText = '☀️';
         }
 
         themeBtn.addEventListener('click', () => {
@@ -784,10 +287,10 @@
 
             if (body.classList.contains('light-mode')) {
                 localStorage.setItem('theme', 'light');
-                themeBtn.innerText = '🌙';
+                themeBtn.innerText = '☀️';
             } else {
                 localStorage.setItem('theme', 'dark');
-                themeBtn.innerText = '☀️';
+                themeBtn.innerText = '&#x1f312;';
             }
         });
 
@@ -827,7 +330,7 @@
                 });
             },
             {
-                threshold: 0.6   // section must be mostly visible
+                threshold: 0.6    // section must be mostly visible
             }
         );
 
